@@ -1,0 +1,111 @@
+#############################
+query allMangas {
+  getAllMangas {
+    id
+    title
+    author
+  }
+}
+{
+  "data": {
+    "getAllMangas": [
+      {
+        "id": "6387fcbd8a2531818506b898",
+        "title": "20th Century Boys",
+        "author": "urasawa naoki"
+      },
+      {
+        "id": "6387fcca8a2531818506b89a",
+        "title": "Solo Leveling",
+        "author": "chugongo"
+      },
+      {
+        "id": "63886b2f97dfe63e60c1a867",
+        "title": "Monster",
+        "author": "urasawa naoki"
+      },
+      {
+        "id": "63886ba03dc914e8355596fb",
+        "title": "Hunter x Hunter",
+        "author": "yoshihiro togashi"
+      },
+      {
+        "id": "638871fa12ebd1ea6d04f400",
+        "title": "Solo Leveling",
+        "author": "iiiiiii"
+      }
+    ]
+  }
+}
+
+#############################
+query oneManga($mangaID: String!) {
+  getManga(id: $mangaID) {
+    id
+    title
+    author
+  }
+}
+{
+  "data": {
+    "getManga": {
+      "id": "6387fcbd8a2531818506b898",
+      "title": "20th Century Boys",
+      "author": "urasawa naoki"
+    }
+  }
+}
+
+#############################
+mutation addManga($newManga: MangaInput!) {
+  addManga(manga: $newManga) {
+    id
+    title
+    author
+  }
+}
+{
+  "data": {
+    "addManga": {
+      "id": "638873cf7a79d4a9d3cc94b3",
+      "title": "Solo Leveling",
+      "author": "chugongo"
+    }
+  }
+}
+
+#############################
+mutation updateManga($mangaID_toUpdate: String!, $mangaData: MangaInput!) {
+  updateManga(id: $mangaID_toUpdate, manga: $mangaData) {
+    id
+    title
+    author
+  }
+}
+{
+  "data": {
+    "updateManga": {
+      "id": "638871fa12ebd1ea6d04f400",
+      "title": "Solo Leveling",
+      "author": "chugongo"
+    }
+  }
+}
+
+#############################
+mutation deleteManga($mangaID_toDelete: String!) {
+  deleteManga(id: $mangaID_toDelete) {
+    id
+    title
+    author
+  }
+}
+{
+  "data": {
+    "deleteManga": {
+      "id": "6387fcbd8a2531818506b898",
+      "title": "20th Century Boys",
+      "author": "urasawa naoki"
+    }
+  }
+}
